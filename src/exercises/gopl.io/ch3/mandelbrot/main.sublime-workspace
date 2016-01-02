@@ -1,0 +1,556 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"nonNegative",
+				"nonNegativeEven"
+			],
+			[
+				"num",
+				"numRecRNG"
+			],
+			[
+				"int",
+				"int"
+			],
+			[
+				"ones",
+				"onesUnfold"
+			],
+			[
+				"const",
+				"constantUnfold"
+			],
+			[
+				"take",
+				"takeWhileViaFoldr"
+			],
+			[
+				"test_optse",
+				"test_optseqtraverse"
+			],
+			[
+				"read_data",
+				"read_data2D〔function〕"
+			],
+			[
+				"plot_re",
+				"plot_results1D"
+			],
+			[
+				"Op",
+				"OptionExamples"
+			],
+			[
+				"T",
+				"Tree"
+			],
+			[
+				"Da",
+				"DataStructures"
+			],
+			[
+				"test_fold",
+				"test_foldleftsum"
+			],
+			[
+				"foldL",
+				"foldLeftSum"
+			],
+			[
+				"List",
+				"ListTests"
+			],
+			[
+				"cl",
+				"classifier"
+			],
+			[
+				"tick",
+				"Tick"
+			],
+			[
+				"Actor",
+				"ActorLogging"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 181.0,
+		"last_filter": "package control in",
+		"selected_items":
+		[
+			[
+				"package control in",
+				"Package Control: Install Package"
+			],
+			[
+				"package control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"package control",
+				"Package Control: Install Package"
+			],
+			[
+				"up",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"inde",
+				"Indent XML"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"In",
+				"Package Control: Install Package"
+			],
+			[
+				"Updat",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"py",
+				"Set Syntax: Python"
+			],
+			[
+				"update",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"package",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"cloju",
+				"Set Syntax: Clojure"
+			],
+			[
+				"repl",
+				"SublimeREPL: Clojure"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"rep",
+				"SublimeREPL: Python - IPython"
+			],
+			[
+				"Install",
+				"Package Control: Install Package"
+			],
+			[
+				"Ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Upd",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"Inst",
+				"Package Control: Install Package"
+			],
+			[
+				"Remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"Java",
+				"Set Syntax: Java"
+			],
+			[
+				"Haske",
+				"Set Syntax: Haskell"
+			],
+			[
+				"Package Ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Haskell",
+				"Set Syntax: Haskell"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"hask",
+				"Set Syntax: Haskell"
+			],
+			[
+				"Add",
+				"Package Control: Add Repository"
+			],
+			[
+				"Pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"Python",
+				"Set Syntax: Python"
+			],
+			[
+				"Package",
+				"Package Control: Remove Package"
+			],
+			[
+				"Packa",
+				"Package Control: Install Package"
+			],
+			[
+				"Scala",
+				"Set Syntax: Scala"
+			]
+		],
+		"width": 462.0
+	},
+	"console":
+	{
+		"height": 54.0,
+		"history":
+		[
+			"python-mode",
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/aconley/Programming/golang/blah.svg",
+		"/Users/aconley/Programming/Sedgewick-Assignments/Final II/Final_II_No1.txt",
+		"/Users/aconley/Programming/Algorithms/SedgewickAssignments/BaseballElimination/FlowQuiz",
+		"/Users/aconley/Programming/Algorithms/SedgewickAssignments/SeamCarving/test/8x8.txt",
+		"/Users/aconley/Programming/Algorithms/SedgewickAssignments/SeamCarving/kruskalInput.txt",
+		"/Users/aconley/Programming/Algorithms/SedgewickAssignments/SeamCarving/Quiz questions",
+		"/Users/aconley/Desktop/emergencyP",
+		"/Users/aconley/Programming/clojure/sicp/src/sicp/chap1.clj",
+		"/Users/aconley/Programming/python/astropy/astropy/cosmology/core.py",
+		"/Users/aconley/Programming/python/astropy/astropy/cosmology/scalar_inv_efuncs.pyx",
+		"/Users/aconley/Programming/python/astropy/astropy/cosmology/parameters.py",
+		"/Users/aconley/Programming/python/astropy/astropy/cosmology/tests/test_cosmology.py",
+		"/Users/aconley/Programming/python/astropy/CHANGES.rst",
+		"/Users/aconley/Programming/python/astropy/README.rst",
+		"/Users/aconley/Programming/python/astropy/docs/cosmology/index.rst",
+		"/Users/aconley/Programming/python/astropy/astropy/cosmology/inv_efuncs.pyx",
+		"/Users/aconley/Programming/python/astropy/astropy/cosmology/inv_efuncs.pyx.py",
+		"/Users/aconley/Programming/python/mbb_emcee/mbb_emcee/fnu.pyx",
+		"/Users/aconley/Programming/python/mbb_emcee/mbb_emcee/modified_blackbody.py",
+		"/Users/aconley/Programming/clojure/clojure-koans/src/koans/07_conditionals.clj",
+		"/Users/aconley/Programming/clojure/clojure-koans/src/koans/06_functions.clj",
+		"/Users/aconley/Programming/clojure/clojure-koans/src/koans/05_maps.clj",
+		"/Users/aconley/Programming/clojure/clojure-koans/src/koans/04_sets.clj",
+		"/Users/aconley/Programming/clojure/clojure-koans/src/koans/02_lists.clj",
+		"/Users/aconley/Programming/clojure/clojure-koans/src/koans/03_vectors.clj",
+		"/Users/aconley/Programming/clojure/sicp/src/sicp/core.clj",
+		"/Users/aconley/Programming/clojure/clojure-koans/src/koans/01_equalities.clj",
+		"/Users/aconley/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/aconley/Library/Application Support/Sublime Text 3/Packages/User/SublimeREPL/config/Python/Main.sublime-menu",
+		"/Users/aconley/Library/Application Support/Sublime Text 3/Packages/User/SublimeREPL.sublime-settings",
+		"/Users/aconley/Library/Application Support/Sublime Text 3/Packages/SublimeREPL/SublimeREPL.sublime-settings",
+		"/Users/aconley/Library/Application Support/Sublime Text 3/Packages/GoSublime/CHANGELOG.md",
+		"/Users/aconley/Library/Application Support/Sublime Text 3/Packages/User/Markdown.sublime-settings",
+		"/Users/aconley/Library/Application Support/Sublime Text 3/Packages/User/GoSublime.sublime-settings",
+		"/Users/aconley/Library/Application Support/Sublime Text 3/Packages/GoSublime/USAGE.md",
+		"/Users/aconley/Programming/Algorithms/SedgewickAssignments/Collinear/Point.java",
+		"/Users/aconley/Programming/Algorithms/SedgewickAssignments/Collinear/Fast.java",
+		"/Users/aconley/Programming/Algorithms/SedgewickAssignments/Collinear/Brute.java",
+		"/Users/aconley/Programming/FunctionalProgramming/FPInScalaBook/src/FPInScala/State/Random.hs",
+		"/Users/aconley/Programming/Algorithms/SedgewickAssignments/Queues/Subset.java",
+		"/Users/aconley/Programming/Algorithms/SedgewickAssignments/Queues/RandomizedQueue.java",
+		"/Users/aconley/Programming/Algorithms/SedgewickAssignments/Queues/Deque.java",
+		"/Users/aconley/Programming/Algorithms/SedgewickAssignments/Queues/Deque.class",
+		"/Users/aconley/Programming/Algorithms/SedgewickCoursera/Queues/RandomizedQueue.java",
+		"/Users/aconley/Programming/Algorithms/SedgewickCoursera/Queues/Deque.java",
+		"/Users/aconley/Programming/Algorithms/SedgewickCoursera/Percolation/PercolationStats.java",
+		"/Users/aconley/Programming/Algorithms/SedgewickCoursera/Percolation/Percolation.java",
+		"/Users/aconley/Programming/Algorithms/SedgewickCoursera/Percolation/PercolationStats.class",
+		"/Users/aconley/Programming/Algorithms/SedgewickCoursera/Percolation/Percolation.class",
+		"/Users/aconley/Programming/Algorithms/SedgewickCoursera/Queues/Subset.java",
+		"/Users/aconley/Programming/Algorithms/SedgewickCoursera/Queues/Dequeue.java",
+		"/Users/aconley/Programming/FunctionalProgramming/FPInScalaBook/src/tests/StateMonadTests.hs",
+		"/Users/aconley/Programming/FunctionalProgramming/FPInScalaBook/src/tests/RandomTests.hs",
+		"/Users/aconley/Programming/Project-Euler/Problem67/TriLargestPath.java",
+		"/Users/aconley/Programming/FunctionalProgramming/FPInScalaBook/src/FPInScala/State/CandyMachine.hs",
+		"/Users/aconley/Programming/FunctionalProgramming/FPInScalaBook/src/tests/CandyMachineTests.hs",
+		"/Users/aconley/Programming/FunctionalProgramming/FPInScalaBook/src/FPInScala/State/StateMonad.hs",
+		"/Users/aconley/Programming/FunctionalProgramming/FPInScalaBook/src/tests/TestSuite.hs",
+		"/Users/aconley/Programming/FunctionalProgramming/FPInScalaBook/src/tests/StateMonadTests",
+		"/Users/aconley/Programming/PofD/pofd_affine/include/ran.h",
+		"/Users/aconley/Programming/PofD/pofd_affine/src/ran.cc",
+		"/Users/aconley/Programming/c++/try.cc",
+		"/Users/aconley/Programming/FunctionalProgramming/FPInScalaBook/src/tests/StateTests.hs",
+		"/Users/aconley/Programming/java/Test.java",
+		"/Users/aconley/Programming/FunctionalProgramming/FPInScalaBook/src/FPInScala/State.hs",
+		"/Users/aconley/Programming/FunctionalProgramming/FPInScalaBook/src/tests/LazinessTests.hs",
+		"/Users/aconley/Programming/FunctionalProgramming/FPInScalaBook/src/FPInScala/ErrorHandling/Option.hs",
+		"/Users/aconley/Programming/FunctionalProgramming/FPInScalaBook/src/tests/OptionTests.hs",
+		"/Users/aconley/Programming/FunctionalProgramming/FPInScalaBook/src/FPInScala/State/State.hs",
+		"/Users/aconley/Programming/FunctionalProgramming/FPInScalaBook/src/FPInScala/Laziness.hs",
+		"/Users/aconley/Programming/FunctionalProgramming/FPInScalaBook/src/FPInScala/ErrorHandling/Or.hs",
+		"/Users/aconley/Programming/FunctionalProgramming/FPInScalaBook/src/tests/OrTests.hs",
+		"/Users/aconley/Programming/FunctionalProgramming/FPInScalaBook/src/FPInScala.cabal",
+		"/Users/aconley/Programming/FunctionalProgramming/FPInScalaBook/src/FPInScala/DataStructures/List.hs",
+		"/Users/aconley/Programming/FunctionalProgramming/FPInScalaBook/src/FPInScala/DataStructures.hs",
+		"/Users/aconley/Programming/FunctionalProgramming/FPInScalaBook/src/FPInScala/ErrorHandling/OptionExamples.hs",
+		"/Users/aconley/Programming/PofD/pofd_affine/src/calcLike.cc",
+		"/Users/aconley/Programming/PofD/pofd_affine/include/calcLike.h",
+		"/Users/aconley/Programming/PofD/pofd_affine/src/pofdMCMC.cc",
+		"/Users/aconley/Programming/PofD/pofd_affine/include/pofdMCMC.h",
+		"/Users/aconley/Programming/PofD/pofd_affine/plot_pofd_results/plot_pofd_results/plot_pofd_results.py",
+		"/Users/aconley/Programming/PofD/pofd_affine/plot_pofd_results/plot_pofd_results/plot_affine_results.py",
+		"/Users/aconley/Programming/PofD/pofd_affine/plot_pofd_results/plot_pofd_results/plot_results2D.py",
+		"/Users/aconley/Programming/FunctionalProgramming/FPInScalaBook/src/tests/ListTests.hs",
+		"/Users/aconley/Programming/FunctionalProgramming/FPInScalaBook/src/FPInScala/DataStructures/Tree.hs",
+		"/Users/aconley/Programming/FunctionalProgramming/FPInScalaBook/src/tests/TreeTests.hs",
+		"/Users/aconley/Programming/FunctionalProgramming/FPInScalaBook/src/tests/GSTests.hs",
+		"/Users/aconley/Programming/FunctionalProgramming/FPInScalaBook/src/FPInScala.hs",
+		"/Users/aconley/Programming/FunctionalProgramming/FPInScalaBook/src/FPInScala/GettingStarted.hs",
+		"/Users/aconley/Programming/FunctionalProgramming/FPInScalaBook/src/gettingstarted/GettingStarted.hs",
+		"/Users/aconley/Programming/FunctionalProgramming/FPInScalaBook/src/gettingstarted/GettingStartedTest.hs",
+		"/Users/aconley/Library/Application Support/Sublime Text 3/Packages/User/SublimeHaskell.sublime-settings",
+		"/Users/aconley/Library/Application Support/Sublime Text 3/Packages/SublimeHaskell/Settings/SublimeHaskell.sublime-settings",
+		"/Users/aconley/Programming/PofD/pofd_coverage/include/simManager.h",
+		"/Users/aconley/Programming/PofD/pofd_coverage/src/simManager.cc",
+		"/Users/aconley/Programming/PofD/pofd_coverage/src/pofd_coverage_runSim.cc",
+		"/Users/aconley/Programming/PofD/pofd_coverage/src/simManagerDouble.cc",
+		"/Users/aconley/Programming/PofD/pofd_coverage/include/simManagerDouble.h",
+		"/Users/aconley/Programming/PofD/pofd_coverage/src/simImageDouble.cc",
+		"/Users/aconley/Programming/PofD/pofd_coverage/include/simImage.h",
+		"/Users/aconley/Programming/PofD/pofd_coverage/include/simImageDouble.h",
+		"/Users/aconley/Programming/PofD/pofd_coverage/include/global_settings.h",
+		"/Users/aconley/Programming/PofD/pofd_coverage/src/beam.cc",
+		"/Users/aconley/Programming/PofD/pofd_coverage/src/doublebeam.cc",
+		"/Users/aconley/Programming/PofD/pofd_coverage/src/simImage.cc",
+		"/Users/aconley/Programming/MachineLearning/scikit-learn_tutorials/text_analytics/skeletons/exercise_01_language_train_model.py",
+		"/Users/aconley/Programming/MachineLearning/scikit-learn_tutorials/text_analytics/skeletons/exercise_02_sentiment.py",
+		"/Users/aconley/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/aconley/Programming/scala/Akka/AkkaInvestigation/src/main/scala/MainAkka.scala",
+		"/Users/aconley/Programming/scala/Akka/AkkaAvionics/src/main/scala/avionics.scala",
+		"/Users/aconley/Programming/scala/Akka/AkkaAvionics/src/main/scala/altimeter.scala",
+		"/Users/aconley/Programming/scala/Akka/AkkaAvionics/src/main/scala/plane.scala",
+		"/Users/aconley/Programming/scala/Akka/AkkaAvionics/src/main/scala/controlsurfaces.scala",
+		"/Users/aconley/Programming/avionics.scala",
+		"/Users/aconley/Programming/scala/Akka/AkkaInvestigation/src/main/scala/BadShakespeareanActor.scala",
+		"/Users/aconley/Programming/scala/FunctionalProgrammingInScala/Homework3/Haskell/Homework3.hs"
+	],
+	"find":
+	{
+		"height": 24.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			",",
+			")",
+			"(",
+			"heaviest edge",
+			"iff",
+			"-",
+			"surpising",
+			"self._nu_y",
+			"self._nu_y_list",
+			"list",
+			"nu_re",
+			"nu_relative_density",
+			"nu_rel",
+			"nu_relative",
+			"nu_y",
+			"nufunc",
+			"inv_efunc",
+			"@static",
+			"self._inv_efunc_scalar",
+			"self._inv_ef",
+			"pyx.py",
+			"ScienceState",
+			"_scalar",
+			"fnu",
+			"\n      ",
+			".connect",
+			" (",
+			"numpy",
+			"simim.",
+			"abs",
+			"fabs",
+			"qnan",
+			"simim.",
+			"simim"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"",
+			" ",
+			"self._nu_y",
+			"np.ndarray[np.double_t, ndim=1]",
+			".union",
+			"np",
+			"simim->"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 24.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.MarGo-output":
+	{
+		"height": 102.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.haskell_error_checker":
+	{
+		"height": 152.0
+	},
+	"output.haskell_sublime_load":
+	{
+		"height": 100.0
+	},
+	"pinned_build_system": "",
+	"project": "main.sublime-project",
+	"replace":
+	{
+		"height": 44.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"deq",
+				"~/Programming/Algorithms/SedgewickAssignments/Queues/Deque.java"
+			],
+			[
+				"ran",
+				"~/Programming/Algorithms/SedgewickAssignments/Queues/RandomizedQueue.java"
+			],
+			[
+				"module",
+				"module OrTests (or_tests) where"
+			],
+			[
+				"",
+				"module OrTests (or_tests) where"
+			],
+			[
+				"pack",
+				"~/Programming/MachineLearning/scikit-learn_tutorials/text_analytics/skeletons/exercise_01_language_train_model.py"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 103.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
