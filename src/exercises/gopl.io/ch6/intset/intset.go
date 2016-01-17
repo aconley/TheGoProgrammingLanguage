@@ -33,6 +33,13 @@ func (s *IntSet) Add(x int) {
 	s.words[word] |= 1 << bit
 }
 
+// AddAll adds a list of values to be added
+func (s *IntSet) AddAll(xs ...int) {
+	for _, x := range xs {
+		s.Add(x)
+	}
+}
+
 // Remove removes the non-negative value x from the set.
 func (s *IntSet) Remove(x int) {
 	word, bit := x/64, uint(x)&mod64
@@ -53,6 +60,39 @@ func (s *IntSet) UnionWith(t *IntSet) {
 	for i, tword := range t.words {
 		if i < len(s.words) {
 			s.words[i] |= tword
+		} else {
+			s.words = append(s.words, tword)
+		}
+	}
+}
+
+// IntersectWith sets s to the intersection of s and t
+func (s *IntSet) IntersectWith(t *IntSet) {
+	for i, tword := range t.words {
+		if i < len(s.words) {
+			s.words[i] &= tword
+		} else {
+			s.words = append(s.words, tword)
+		}
+	}
+}
+
+// DifferenceWith sets s to the differences of s and t
+func (s *IntSet) DifferenceWith(t *IntSet) {
+	for i, tword := range t.words {
+		if i < len(s.words) {
+			s.words[i] &^= tword
+		} else {
+			s.words = append(s.words, tword)
+		}
+	}
+}
+
+// SymmetricDifferenceWith sets s to the symmetric differences of s and t
+func (s *IntSet) SymmetricDifferenceWith(t *IntSet) {
+	for i, tword := range t.words {
+		if i < len(s.words) {
+			s.words[i] ^= tword
 		} else {
 			s.words = append(s.words, tword)
 		}
@@ -99,4 +139,26 @@ func (s *IntSet) Len() int {
 		len += popcount.PopCountHacker(word)
 	}
 	return len
+}
+
+// Elems retuns a slice of all the elements in s
+func (s *IntSet) Elems() []int {
+	nelems := s.Len()
+	if nelems == 0 {
+		return nil
+	}
+	retval := make([]int, nelems)
+	cntr := 0
+	for i, word := range s.words {
+		if word == 0 {
+			continue
+		}
+		for j := 0; j < 64; j++ {
+			if word&(1<<uint(j)) != 0 {
+				retval[cntr] = 64*i + j
+				cntr++
+			}
+		}
+	}
+	return retval
 }
