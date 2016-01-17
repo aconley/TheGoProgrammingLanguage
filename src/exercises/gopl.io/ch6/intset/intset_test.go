@@ -94,3 +94,62 @@ func Example4() {
 	// {1 9 144}
 	// {1 9 11 144}
 }
+
+func Example5() {
+	var x, y IntSet
+	x.AddAll(1, 9, 144)
+	fmt.Println(x.String()) // "{1 9 144}"
+
+	y.AddAll(3, 4, 7)
+	y.UnionWith(&x)
+	fmt.Println(y.String()) // "{1 3 4 7 9 144}"
+
+	// Output:
+	// {1 9 144}
+	// {1 3 4 7 9 144}
+}
+
+func Example6() {
+	var x, y IntSet
+	x.AddAll(1, 9, 144)
+	y.AddAll(3, 9, 1)
+	y.IntersectWith(&x)
+	fmt.Println(y.String)
+
+	// Output
+	// {1 9}
+}
+
+func Example7() {
+	var x, y IntSet
+	x.AddAll(1, 9, 144)
+	y.AddAll(3, 9, 4)
+	x.DifferenceWith(&y)
+	fmt.Println(x.String)
+
+	// Output
+	// {1 144}
+}
+
+func Example8() {
+	var x, y IntSet
+	x.AddAll(1, 9, 144)
+	y.AddAll(3, 9, 4)
+	x.SymmetricDifferenceWith(&y)
+	fmt.Println(x.String)
+
+	// Output
+	// {1 3 4 144}
+}
+
+func Example9() {
+	var x IntSet
+	x.AddAll(1, 9, 144)
+	elems := x.Elems()
+	areEqual := len(elems) == 3 && elems[0] == 1 &&
+		elems[1] == 9 && elems[2] == 144
+	fmt.Println(areEqual)
+
+	// Output
+	// true
+}
