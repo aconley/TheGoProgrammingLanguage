@@ -114,9 +114,15 @@ func Example6() {
 	x.AddAll(1, 9, 144)
 	y.AddAll(3, 9, 1)
 	y.IntersectWith(&x)
-	fmt.Println(y.String)
+	fmt.Println(y.String())
 
-	// Output
+	y.Clear()
+	y.AddAll(3, 9, 1)
+	x.IntersectWith(&y)
+	fmt.Println(x.String())
+
+	// Output:
+	// {1 9}
 	// {1 9}
 }
 
@@ -125,9 +131,9 @@ func Example7() {
 	x.AddAll(1, 9, 144)
 	y.AddAll(3, 9, 4)
 	x.DifferenceWith(&y)
-	fmt.Println(x.String)
+	fmt.Println(x.String())
 
-	// Output
+	// Output:
 	// {1 144}
 }
 
@@ -136,9 +142,9 @@ func Example8() {
 	x.AddAll(1, 9, 144)
 	y.AddAll(3, 9, 4)
 	x.SymmetricDifferenceWith(&y)
-	fmt.Println(x.String)
+	fmt.Println(x.String())
 
-	// Output
+	// Output:
 	// {1 3 4 144}
 }
 
@@ -150,6 +156,6 @@ func Example9() {
 		elems[1] == 9 && elems[2] == 144
 	fmt.Println(areEqual)
 
-	// Output
+	// Output:
 	// true
 }

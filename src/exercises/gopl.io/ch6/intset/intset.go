@@ -68,11 +68,12 @@ func (s *IntSet) UnionWith(t *IntSet) {
 
 // IntersectWith sets s to the intersection of s and t
 func (s *IntSet) IntersectWith(t *IntSet) {
-	for i, tword := range t.words {
-		if i < len(s.words) {
-			s.words[i] &= tword
+	n := len(t.words)
+	for i := range s.words {
+		if i < n {
+			s.words[i] &= t.words[i]
 		} else {
-			s.words = append(s.words, tword)
+			s.words[i] = 0
 		}
 	}
 }
