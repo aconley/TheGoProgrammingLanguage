@@ -1,6 +1,10 @@
 package counters
 
-import "fmt"
+import (
+	"bytes"
+	"fmt"
+	"io"
+)
 
 func Example1() {
 	var c WordCounter
@@ -12,7 +16,7 @@ func Example1() {
 
 	c.Write(nil)
 	fmt.Println(c)
-	// Output
+	// Output:
 	// 1
 	// 4
 	// 4
@@ -28,8 +32,39 @@ func Example2() {
 
 	c.Write(nil)
 	fmt.Println(c)
-	// Output
+	// Output:
 	// 1
 	// 4
 	// 4
+}
+
+func Example3() {
+	var b bytes.Buffer
+	var w io.Writer
+	var cntr *int64
+	w, cntr = CountingWriter(&b)
+	n, err := w.Write([]byte("Hello"))
+	if err != nil {
+		panic(fmt.Sprintf("Failed to write: %v", err))
+	}
+
+	fmt.Println(b.String())
+	fmt.Println(n)
+	fmt.Println(*cntr)
+
+	n, err = w.Write([]byte(" world"))
+	if err != nil {
+		panic(fmt.Sprintf("Failed to write: %v", err))
+	}
+	fmt.Println(b.String())
+	fmt.Println(n)
+	fmt.Println(*cntr)
+
+	// Output:
+	// Hello
+	// 5
+	// 5
+	// Hello world
+	// 6
+	// 11
 }
