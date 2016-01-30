@@ -11,8 +11,8 @@ const (
 	mu2 uint32 = 0x0f0f0f0f
 )
 
-// BitwiseGenerator is a ParenGenerator using bitwise operations
-type BitwiseGenerator struct {
+// Bitwise is a ParenGenerator using bitwise operations
+type bitwise struct {
 	n      int
 	done   bool
 	mask   uint32
@@ -20,25 +20,31 @@ type BitwiseGenerator struct {
 	buffer bytes.Buffer
 }
 
-// CreateBitwiseGenerator creates a new BitwiseGenerator
-func CreateBitwiseGenerator(n int) BitwiseGenerator {
+// CreateBitwise creates a new Bitwise
+func CreateBitwise(n int) Generator {
 	if n > 16 {
 		panic(fmt.Sprintf("Invalid size %d; must be <= 16", n))
 	}
+	if n <= 0 {
+		return nil
+	}
 	nu := uint32(n)
 	var b bytes.Buffer
-	return BitwiseGenerator{n, false, 1 << (nu + 1), (1 << nu) - 1, b}
+	return &bitwise{n, false, 1 << (2*nu + 1), (1 << nu) - 1, b}
 }
 
 // HasNext returns true if there are more patterns to generate
-func (b *BitwiseGenerator) HasNext() bool {
+func (b *bitwise) HasNext() bool {
+	if b == nil {
+		return false
+	}
 	return !b.done
 }
 
 // GetNext returns the next set of parenthesis, and updates
 //  the state of b
-func (b *BitwiseGenerator) GetNext() string {
-	if b.done {
+func (b *bitwise) GetNext() string {
+	if b == nil || b.done {
 		panic("Generator is done")
 	}
 	// Generate new state
@@ -57,7 +63,7 @@ func (b *BitwiseGenerator) GetNext() string {
 
 func generateFromState(n int, v uint32, buffer *bytes.Buffer) string {
 	buffer.Reset()
-	for i := uint(n); n > 0; i++ {
+	for i := uint(2 * n); i > 0; i-- {
 		if (1<<(i-1))&v != 0 {
 			buffer.WriteByte(')')
 		} else {
