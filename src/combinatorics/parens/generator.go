@@ -6,3 +6,13 @@ type Generator interface {
 	HasNext() bool
 	GetNext() string
 }
+
+// CountNSets counts the number of parens remaining
+//  in g destructively
+func CountNSets(g Generator) int {
+	var cntr int
+	for cntr = 0; g.HasNext(); cntr++ {
+		_ = g.GetNext()
+	}
+	return cntr
+}
