@@ -1,7 +1,6 @@
 package parens
 
 import (
-	"bytes"
 	"fmt"
 )
 
@@ -17,7 +16,7 @@ type bitwise struct {
 	hasMore bool
 	mask    uint32
 	state   uint32
-	buffer  bytes.Buffer
+	buffer  []byte
 }
 
 // CreateBitwise creates a new Bitwise
@@ -29,7 +28,7 @@ func CreateBitwise(n int) Generator {
 		return nil
 	}
 	nu := uint32(n)
-	var b bytes.Buffer
+	b := make([]byte, 2*n, 2*n)
 	return &bitwise{n, true, 1 << (2*nu + 1), (1 << nu) - 1, b}
 }
 
@@ -47,8 +46,10 @@ func (b *bitwise) GetNext() string {
 	if b == nil || !b.hasMore {
 		panic("Generator is done")
 	}
+	// Get the string representation of the current state
+	res := generateFromState(b.n, b.state, b.buffer)
+
 	// Generate new state
-	res := generateFromState(b.n, b.state, &b.buffer)
 	t := b.state ^ mu0
 	u := t ^ (t - 1)
 	v := b.state | u
@@ -56,21 +57,24 @@ func (b *bitwise) GetNext() string {
 	s := popCount(u & mu0)
 	wp := (v & (^w)) >> s
 	newstate := w + wp
+
 	b.hasMore = (newstate & b.mask) == 0
 	b.state = newstate
 	return res
 }
 
-func generateFromState(n int, v uint32, buffer *bytes.Buffer) string {
-	buffer.Reset()
-	for i := uint(2 * n); i > 0; i-- {
-		if (1<<(i-1))&v != 0 {
-			buffer.WriteByte(')')
+// generatesFromState converts the internal state to a string
+//  representation
+func generateFromState(n int, v uint32, buffer []byte) string {
+	var ival uint32 = 1 << uint(2*n-1)
+	for i := 0; i < 2*n; i++ {
+		if (ival>>uint(i))&v == 0 {
+			buffer[i] = '('
 		} else {
-			buffer.WriteByte('(')
+			buffer[i] = ')'
 		}
 	}
-	return buffer.String()
+	return string(buffer)
 }
 
 // This is the Hacker's Delight popcount
