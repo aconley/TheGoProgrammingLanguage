@@ -13,11 +13,11 @@ const (
 
 // Bitwise is a ParenGenerator using bitwise operations
 type bitwise struct {
-	n      int
-	done   bool
-	mask   uint32
-	state  uint32
-	buffer bytes.Buffer
+	n       int
+	hasMore bool
+	mask    uint32
+	state   uint32
+	buffer  bytes.Buffer
 }
 
 // CreateBitwise creates a new Bitwise
@@ -30,7 +30,7 @@ func CreateBitwise(n int) Generator {
 	}
 	nu := uint32(n)
 	var b bytes.Buffer
-	return &bitwise{n, false, 1 << (2*nu + 1), (1 << nu) - 1, b}
+	return &bitwise{n, true, 1 << (2*nu + 1), (1 << nu) - 1, b}
 }
 
 // HasNext returns true if there are more patterns to generate
@@ -38,13 +38,13 @@ func (b *bitwise) HasNext() bool {
 	if b == nil {
 		return false
 	}
-	return !b.done
+	return b.hasMore
 }
 
 // GetNext returns the next set of parenthesis, and updates
 //  the state of b
 func (b *bitwise) GetNext() string {
-	if b == nil || b.done {
+	if b == nil || !b.hasMore {
 		panic("Generator is done")
 	}
 	// Generate new state
@@ -56,7 +56,7 @@ func (b *bitwise) GetNext() string {
 	s := popCount(u & mu0)
 	wp := (v & (^w)) >> s
 	newstate := w + wp
-	b.done = (newstate & b.mask) != 0
+	b.hasMore = (newstate & b.mask) == 0
 	b.state = newstate
 	return res
 }
