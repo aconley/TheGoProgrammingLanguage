@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestDytinhSmall(t *testing.T) {
+func TestSmall(t *testing.T) {
 	t.Log("Testing small string example (2 parens)")
 	g := CreateString(2)
 	if !g.HasNext() {
