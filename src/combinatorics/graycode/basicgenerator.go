@@ -57,10 +57,14 @@ func (b *BasicGenerator) GetNext() uint32 {
 }
 
 // ruler is the binary ruler function (count number of trailing 0s)
-//  from Hacker's Delight
+//  from Hacker's Delight with a hack for 0 trailing 0s since
+//  we are counting up and so half are odd
 func ruler(x uint32) uint8 {
 	if x == 0 {
 		return 32
+	}
+	if x&1 != 0 {
+		return 0
 	}
 	var n uint8 = 1
 	if (x & 0x0000ffff) == 0 {
