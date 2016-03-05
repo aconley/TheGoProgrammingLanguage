@@ -8,8 +8,8 @@ import (
 )
 
 // getOMDBInfo queries the OMDB to get movie information
-func getOMDBInfo(name string) (*PosterSearchResult, error) {
-	q := url.QueryEscape(name)
+func getOMDBInfoByTitle(title string) (*PosterSearchResult, error) {
+	q := url.QueryEscape(title)
 	resp, err := http.Get(QueryURL + "/?s=" + q)
     if resp != nil {
         defer resp.Body.Close()
@@ -32,8 +32,8 @@ func getOMDBInfo(name string) (*PosterSearchResult, error) {
 }
 
 // GetPosterURLs gets a slice of poster urls for movies
-func GetPosterURLs(name string) ([]string, error) {
-    info, err := getOMDBInfo(name);
+func GetPosterURLs(title string) ([]string, error) {
+    info, err := getOMDBInfoByTitle(title);
     if err != nil {
         return nil, err
     }
