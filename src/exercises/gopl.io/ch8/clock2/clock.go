@@ -22,9 +22,11 @@ func handleConn(c net.Conn) {
 }
 
 func main() {
-  port := flag.Int("port", 8000, "specify what port to write to")
+  fport := flag.Int("port", 8000, "specify what port to write to")
+  flag.Parse()
 
-	listener, err := net.Listen("tcp", fmt.Sprintf("localhost:%d", port))
+  connString := fmt.Sprintf("localhost:%d", *fport)
+	listener, err := net.Listen("tcp", connString)
 	if err != nil {
 		log.Fatal(err)
 	}
