@@ -19,7 +19,7 @@ func getTimes(readers []bufio.Reader) ([]string, error) {
     if err != nil {
       return nil, err
     }
-    results[idx] = time
+    results[idx] = time[:len(time)-1]
   }
   return results, nil
 }
@@ -28,6 +28,7 @@ func handleConns(names []string, cs []net.Conn) {
   // The tricky part is that we want to do this
   //  without channels
   n := len(cs)
+  fmt.Printf("Number of conns: %d\n", n)
   if n == 0 {
     return
   }
@@ -77,5 +78,5 @@ func main() {
     defer conn.Close()
   }
 
-  go handleConns(names, conns)
+  handleConns(names, conns)
 }
