@@ -1,5 +1,7 @@
 package permutations
 
+import "sort"
+
 // This generates integer permutations lexicographically
 //  using Algorithm L from Knuth vol 4, section 7.2.1.2
 // This is the basic (un-optimized) version
@@ -11,14 +13,14 @@ package permutations
 //  but that interchanges of non-distinct elements are
 //  not considered different.  Thus, the permuatations
 //  of 113 are 113, 131, 311 only.
-func NextLexicographicPermutation(a []int) bool {
-	n := len(a)
+func NextLexicographicPermutation(a sort.Interface) bool {
+	n := a.Len()
 	if n == 0 {
 		return false
 	}
 
 	j := n - 2
-	for j >= 0 && a[j] >= a[j+1] {
+	for j >= 0 && !a.Less(j, j+1) {
 		j--
 	}
 
@@ -32,18 +34,17 @@ func NextLexicographicPermutation(a []int) bool {
 	//  So we will now have to make a[j] larger
 	// Figure out what to exchange it with.
 	l := n - 1
-	aj := a[j]
-	for aj >= a[l] {
+	for !a.Less(j, l) {
 		l--
 	}
-	a[j], a[l] = a[l], a[j]
+	a.Swap(j, l)
 
 	// And reverse a[j+1] to a[l], which is the lexicographically
 	//  least way to finish out the permutation
 	k := j + 1
 	l = n - 1
 	for k < l {
-		a[k], a[l] = a[l], a[k]
+		a.Swap(k, l)
 		k++
 		l--
 	}

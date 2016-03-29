@@ -1,13 +1,16 @@
 package permutations
 
-import "testing"
+import (
+	"sort"
+	"testing"
+)
 
 func TestBasicLexicographic3(t *testing.T) {
 	t.Log("Testing permutations of 123")
 	var expected = [6][3]int{{1, 2, 3}, {1, 3, 2},
 		{2, 1, 3}, {2, 3, 1}, {3, 1, 2}, {3, 2, 1}}
 	n := len(expected)
-	var testVal = expected[0][:]
+	var testVal = sort.IntSlice(expected[0][:])
 	var ok bool
 	for cntr := 1; cntr < n; cntr++ {
 		ok = NextLexicographicPermutation(testVal)
@@ -32,7 +35,7 @@ func TestBasicLexicographic3rep(t *testing.T) {
 	t.Log("Testing permutations of 113")
 	var expected = [3][3]int{{1, 1, 3}, {1, 3, 1}, {3, 1, 1}}
 	n := len(expected)
-	var testVal = expected[0][:]
+	var testVal = sort.IntSlice(expected[0][:])
 	var ok bool
 	for cntr := 1; cntr < n; cntr++ {
 		ok = NextLexicographicPermutation(testVal)
@@ -60,7 +63,7 @@ func TestBasicLexicographic4rep(t *testing.T) {
 		{2, 3, 1, 2}, {2, 3, 2, 1}, {3, 1, 2, 2}, {3, 2, 1, 2},
 		{3, 2, 2, 1}}
 	n := len(expected)
-	var testVal = expected[0][:]
+	var testVal = sort.IntSlice(expected[0][:])
 	var ok bool
 	for cntr := 1; cntr < n; cntr++ {
 		ok = NextLexicographicPermutation(testVal)
