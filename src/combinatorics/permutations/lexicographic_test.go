@@ -87,3 +87,29 @@ func TestBasicLexicographic4rep(t *testing.T) {
 		t.Errorf("Shouldn't be able to get any more permutations")
 	}
 }
+
+func TestLexicographic8(t *testing.T) {
+  t.Log("Testing number of permutations of 8 entries")
+  a := sort.IntSlice([]int{0, 1, 2, 3, 4, 5, 6, 7})
+  cnt := 1
+  for NextLexicographicPermutation(a) {
+    cnt++
+  }
+  if (cnt != 40320) {
+    t.Errorf("Got unexpected number of permutations: %d expected %d",
+      cnt, 40320)
+  }
+}
+
+func BenchmarkLexicographic8(b *testing.B) {
+  a0 := []int{0, 1, 2, 3, 4, 5, 6, 7}
+  a := make([]int, len(a0))
+  for n := 0; n < b.N; n++ {
+    copy(a, a0)
+    a := sort.IntSlice(a)
+    cnt := 1
+    for NextLexicographicPermutation(a) {
+      cnt++
+    }
+  }
+}
