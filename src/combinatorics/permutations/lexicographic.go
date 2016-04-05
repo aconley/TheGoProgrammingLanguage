@@ -51,3 +51,30 @@ func NextLexicographicPermutation(a sort.Interface) bool {
 
 	return true
 }
+
+// Lexicographic visits all permutations of data in
+//  lexicographic order, calling visit on each
+//  permutation unless stopped early
+func Lexicographic(data SortableInterface) {
+  n := data.Len()
+  if n == 0 {
+    return
+  }
+
+  if !sort.IsSorted(data) {
+    sort.Sort(data)
+  }
+
+  // visit the first one
+  if !data.Visit() {
+    // quit early
+    return
+  }
+
+  for NextLexicographicPermutation(data) {
+    if !data.Visit() {
+      // quit early
+      return
+    }
+  }
+}

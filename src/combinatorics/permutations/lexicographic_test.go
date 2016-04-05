@@ -5,6 +5,8 @@ import (
 	"testing"
 )
 
+// Tests of NextLexicographicPermutation
+
 func TestBasicLexicographic3(t *testing.T) {
 	t.Log("Testing permutations of 123")
 	var expected = [6][3]int{{1, 2, 3}, {1, 3, 2},
@@ -100,6 +102,103 @@ func TestLexicographic8(t *testing.T) {
       cnt, 40320)
   }
 }
+
+// Tests of the visitor version
+
+// Counting visitor
+type countingIntVisitor struct {
+	s       []int
+	n       int
+}
+
+func (s *countingIntVisitor) Len() int {
+    return len(s.s)
+}
+func (s *countingIntVisitor) Swap(i, j int) {
+    s.s[i], s.s[j] = s.s[j], s.s[i]
+}
+func (s *countingIntVisitor) Less(i, j int) bool {
+    return s.s[i] < s.s[j]
+}
+
+func (s *countingIntVisitor) Visit() bool {
+  s.n++
+  return true
+}
+
+func TestLexicographicVisitor4count(t *testing.T) {
+	t.Log("Counting visitor based permutations of 1223")
+	testVal := &countingIntVisitor{s: []int{1, 2, 3, 4}, n: 0}
+  Lexicographic(testVal);
+  if testVal.n != 24 {
+    t.Errorf("Expected %d perms, got %d", 24, testVal.n)
+  }
+}
+
+// Record visits
+type recordIntVisitor struct {
+	s       []int
+	visited [][]int
+}
+
+func (s *recordIntVisitor) Len() int {
+    return len(s.s)
+}
+func (s *recordIntVisitor) Swap(i, j int) {
+    s.s[i], s.s[j] = s.s[j], s.s[i]
+}
+func (s *recordIntVisitor) Less(i, j int) bool {
+    return s.s[i] < s.s[j]
+}
+
+func (s *recordIntVisitor) Visit() bool {
+  newval := make([]int, len(s.s))
+  copy(newval, s.s)
+  s.visited = append(s.visited, newval)
+  return true
+}
+
+func (s *recordIntVisitor) NVisited() int {
+  return len(s.visited)
+}
+
+func TestLexicographicVisitor4rep(t *testing.T) {
+	t.Log("Testing visitor based permutations of 1223")
+	var expected = [12][4]int{{1, 2, 2, 3}, {1, 2, 3, 2}, {1, 3, 2, 2},
+		{2, 1, 2, 3}, {2, 1, 3, 2}, {2, 2, 1, 3}, {2, 2, 3, 1},
+		{2, 3, 1, 2}, {2, 3, 2, 1}, {3, 1, 2, 2}, {3, 2, 1, 2},
+		{3, 2, 2, 1}}
+	n := len(expected)
+
+	testVal := &recordIntVisitor{s: []int{1, 2, 2, 3}, visited: nil}
+
+  Lexicographic(testVal);
+
+  if testVal.NVisited() != n {
+    t.Errorf("Expected %d perms, got %d", n, testVal.NVisited())
+  }
+
+  for i := 0; i < n; i++ {
+    if !compareIntSlice(expected[i][:], testVal.visited[i]) {
+      t.Errorf("On permutation %d expected %v got %v", i,
+        expected[i], testVal.visited[i])
+    }
+  }
+}
+
+func compareIntSlice(v1 []int, v2 []int) bool {
+  if len(v1) != len(v2) {
+    return false
+  }
+  for i := range(v1) {
+    if v1[i] != v2[i] {
+      return false
+    }
+  }
+  return true
+}
+
+// Benchmark
 
 func BenchmarkLexicographic8(b *testing.B) {
   a0 := []int{0, 1, 2, 3, 4, 5, 6, 7}

@@ -11,7 +11,7 @@ type Interface interface {
     Swap(i, j int)
 
     // Visit is called on each permutation.  If it returns
-    //  false, no more permutations are generate
+    //  false, no more permutations are generated
     Visit() bool
 }
 

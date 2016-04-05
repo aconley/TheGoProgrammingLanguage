@@ -1,7 +1,5 @@
 package permutations
 
-import "sort"
-
 // PlainChanges visits all the permutations
 // of data.  Requires that the elements
 // are distinct.  Data is modified by this process
@@ -11,12 +9,9 @@ func PlainChanges(data Interface) {
   if n == 0 {
     return
   }
-  if !sort.IsSorted(data) {
-    sort.Sort(data)
-  }
 
   // Visit the initial permutation
-  if data.Visit() {
+  if !data.Visit() {
       return
   }
 
@@ -46,7 +41,7 @@ func PlainChanges(data Interface) {
         j--
       } else {
         // Visit, possibly terminate
-        if data.Visit() {
+        if !data.Visit() {
           return
         }
         c[j] = q
