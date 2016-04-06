@@ -97,7 +97,7 @@ func TestLexicographic8(t *testing.T) {
   for NextLexicographicPermutation(a) {
     cnt++
   }
-  if (cnt != 40320) {
+  if cnt != 40320 {
     t.Errorf("Got unexpected number of permutations: %d expected %d",
       cnt, 40320)
   }

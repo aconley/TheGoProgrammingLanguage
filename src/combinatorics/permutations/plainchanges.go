@@ -23,28 +23,32 @@ func PlainChanges(data Interface) {
   }
 
   // Main loop
+  var q int
   for {
     // Find the index j to change
     j := n - 1
     s := 0
-    for q := c[j] + o[j];; {
-      if q == j {
-        if j == 1 {
+    for {
+      q = c[j] + o[j]
+      if q < 0 {
+        o[j] = -o[j]
+        j--
+      } else if q == (j + 1) {
+        if j == 0 {
           // No more valid perms
           return
         }
         s++
         o[j] = -o[j]
         j--
-      } else if q < 0 {
-        o[j] = -o[j]
-        j--
       } else {
+        data.Swap(j - c[j] + s, j - q + s)
         // Visit, possibly terminate
         if !data.Visit() {
           return
         }
         c[j] = q
+        break
       }
     }
   }
