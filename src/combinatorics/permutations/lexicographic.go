@@ -55,14 +55,15 @@ func NextLexicographicPermutation(a sort.Interface) bool {
 // Lexicographic visits all permutations of data in
 //  lexicographic order, calling visit on each
 //  permutation unless stopped early
+//
+// Note that the permutations start from the
+//  initial state in data, so if that is not
+//  the lexicographically least then not all
+//  permutations will be visited.
 func Lexicographic(data SortableInterface) {
   n := data.Len()
   if n == 0 {
     return
-  }
-
-  if !sort.IsSorted(data) {
-    sort.Sort(data)
   }
 
   // visit the first one

@@ -198,8 +198,8 @@ func compareIntSlice(v1 []int, v2 []int) bool {
   return true
 }
 
-// Benchmark
-
+// Benchmark the number of permutations of
+//  [0, 7] with no repeats
 func BenchmarkLexicographic8(b *testing.B) {
   a0 := []int{0, 1, 2, 3, 4, 5, 6, 7}
   a := make([]int, len(a0))
@@ -210,5 +210,16 @@ func BenchmarkLexicographic8(b *testing.B) {
     for NextLexicographicPermutation(a) {
       cnt++
     }
+  }
+}
+
+// Benchmark using interface version
+func BenchmarkLexicographicVisitor9(b *testing.B) {
+  a0 := []int{0, 1, 2, 3, 4, 5, 6, 7, 8}
+  a := make([]int, len(a0))
+  for n := 0; n < b.N; n++ {
+    copy(a, a0)
+    testVal := &countingIntVisitor{s: a, n: 0}
+    Lexicographic(testVal)
   }
 }

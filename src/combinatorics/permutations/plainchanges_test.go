@@ -43,3 +43,15 @@ func TestPlainChanges8Count(t *testing.T) {
       testVal.n, 40320)
   }
 }
+
+// Benchmark the number of permutations of
+//  [0, 9] using the countering permuter
+func BenchmarkPlain9(b *testing.B) {
+  a0 := []int{0, 1, 2, 3, 4, 5, 6, 7, 8}
+  a := make([]int, len(a0))
+  for n := 0; n < b.N; n++ {
+    copy(a, a0)
+    testVal := &countingIntVisitor{s: a, n: 0}
+    PlainChanges(testVal)
+  }
+}
