@@ -1,5 +1,10 @@
 // Netcat is a read-only tcp client
 // This version is modified as per exercise 8.3
+
+// I decided not to have this keep running after
+//  main is killed.  So the way to test what this does
+//  when stdin is closed is to pipe in input:
+//   netcat4 < input_file
 package main
 
 import (
@@ -29,9 +34,9 @@ func main() {
 		if _, err := io.Copy(os.Stdout, conn); err != nil {
 			log.Fatal(err)
 		}
-		log.Println("done")
 		done <- struct{}{}
 	}()
+
   mustCopy(conn, os.Stdin)
 	connTCP.CloseWrite()
 	<-done // wait for background connection to finish
