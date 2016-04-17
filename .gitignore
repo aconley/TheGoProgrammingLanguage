@@ -7,3 +7,5 @@ src/golang.org
 src/sourcegraph.com
 src/gopkg.in/
 browse.VC.db
+.browse.VC.*
+.vscode
