@@ -2,7 +2,8 @@ package permutations
 
 // PlainChanges visits all the permutations
 // of data.  Requires that the elements
-// are distinct.  Data is modified by this process
+// are distinct.  Data is modified by this process.
+// Algorithm P of Knuth Volume 4A 7.2.1.2
 func PlainChanges(data Interface) {
 
   n := data.Len()
@@ -15,7 +16,6 @@ func PlainChanges(data Interface) {
       return
   }
 
-  // Algorithm P of Knuth Volume 4A 7.2.1.2
   c := make([]int, n)
   o := make([]int, n)
   for i := range(o) {
