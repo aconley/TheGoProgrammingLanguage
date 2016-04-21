@@ -1,9 +1,11 @@
 bin/
 gobook
 pkg/
+proto/tutorial
 src/9fans.net
 src/github.com
 src/golang.org
+src/google.golang.org
 src/sourcegraph.com
 src/gopkg.in/
 browse.VC.db
