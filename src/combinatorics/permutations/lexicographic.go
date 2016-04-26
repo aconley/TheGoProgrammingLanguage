@@ -51,7 +51,7 @@ func NextLexicographicPermutation(a sort.Interface) bool {
 	}
 	a.Swap(j, l)
 
-	// And reverse a[j+1] to a[l], which is the lexicographically
+	// And reverse [a[j+1], a[n]), which is the lexicographically
 	//  least way to finish out the permutation
 	k := j + 1
 	l = n - 1
