@@ -8,13 +8,25 @@ import (
 	"golang.org/x/net/html"
 )
 
-// Extract makes an HTTP GET request to the specified URL, parses
+// Extract makes an HTTP GET request to the specified URL url, parses
 // the response as HTML, and returns the links in the HTML document.
-func Extract(url string) ([]string, error) {
-	resp, err := http.Get(url)
-	if err != nil {
-		return nil, err
+// cancelChan (optional) is a channel which, when closed, indicates
+//  that all active requests should be cancelled.
+func Extract(url string, cancelChan <-chan struct{}) ([]string, error) {
+	req, errReq := http.NewRequest("GET", url, nil)
+	if errReq != nil {
+		return nil, errReq
 	}
+
+	if cancelChan != nil {
+		req.Cancel = cancelChan
+	}
+
+	resp, errResp := http.DefaultClient.Do(req)
+	if errResp != nil {
+		return nil, errResp
+	}
+
 	if resp.StatusCode != http.StatusOK {
 		resp.Body.Close()
 		return nil, fmt.Errorf("getting %s: %s", url, resp.Status)
