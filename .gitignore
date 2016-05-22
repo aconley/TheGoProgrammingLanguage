@@ -11,3 +11,4 @@ src/gopkg.in/
 browse.VC.db
 .browse.VC.*
 .vscode
+*.sublime-*
